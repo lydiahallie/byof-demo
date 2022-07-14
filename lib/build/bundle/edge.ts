@@ -62,8 +62,7 @@ export const getEdgeHandlerCode = (pageName: string, filePath) => `
           <link href="styles.css" rel="stylesheet">
         </head>
         <body>
-          <div id="__previous">\${html}</div>
-          <script src="${pageName}.bundle.js" defer></script>
+          <div id="root">\${html}</div>
         </body>
       </html>\`, {
       headers: {

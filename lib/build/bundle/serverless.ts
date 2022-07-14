@@ -57,7 +57,7 @@ const getHandlerCode = (html: string, pageName: string) => `
         <link href="styles.css" rel="stylesheet">
       </head>
       <body>
-        <div id="__previous">${html}</div>
+        <div id="root">${html}</div>
         <script src="${pageName}.bundle.js" defer></script>
       </body>
     </html>\`)

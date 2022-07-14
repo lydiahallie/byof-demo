@@ -15,15 +15,12 @@ export async function createEdgeFunction(
   await ensureDir(funcFolder);
 
   try {
-    await Promise.allSettled([
-      generateClientBundle({ filePath, pageName }),
-      generateEdgeBundle({
-        funcFolder,
-        filePath,
-        pageName,
-        Component,
-      }),
-    ]);
+    await generateEdgeBundle({
+      funcFolder,
+      filePath,
+      pageName,
+      Component,
+    });
 
     return writeJson(`${funcFolder}/.vc-config.json`, {
       runtime: "edge",

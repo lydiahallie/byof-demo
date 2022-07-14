@@ -53,8 +53,8 @@ async function buildVercelOutput() {
   }
 
   return writeJSON(".vercel/output/config.json", {
-    ...(existsSync(join("vercel.config.js"))
-      ? require(join("vercel.config.js"))?.default
+    ...(existsSync(process.cwd() + "/vercel.config.js")
+      ? require(process.cwd() + "/vercel.config.js")?.default
       : {}),
     ...{
       version: 3,

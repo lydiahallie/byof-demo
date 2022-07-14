@@ -33,7 +33,7 @@ export async function createStaticFile(
         <link href="styles.css" rel="stylesheet">
       </head>
       <body>
-        <div id="__previous">${ReactDOMServer.renderToString(
+        <div id="root">${ReactDOMServer.renderToString(
           React.createElement(Component)
         )}</div>
         <script src="${pageName}.bundle.js" defer></script>
