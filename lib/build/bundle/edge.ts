@@ -23,16 +23,9 @@ export async function generateEdgeBundle({
 
   try {
     const { code: contents } = await transform(
-      getEdgeHandlerCode(pageName, filePath),
+      getEdgeHandlerCode(filePath),
       edgeBuildConfig as TransformOptions
     );
-
-    await build({
-      ...(edgeBuildConfig as BuildOptions),
-      ...bundleConstants,
-      entryPoints: [filePath],
-      outfile: `${funcFolder}/component.js`,
-    });
 
     return await build({
       ...(edgeBuildConfig as BuildOptions),
@@ -45,10 +38,10 @@ export async function generateEdgeBundle({
   }
 }
 
-export const getEdgeHandlerCode = (pageName: string, filePath) => `
+export const getEdgeHandlerCode = (filePath) => `
   import { createElement } from 'react';
   import { renderToString } from 'react-dom/server';
-  import Component from "${filePath}";
+  import Component from '${filePath}';
 
   export default async function(req) {
     const html = renderToString(createElement(Component, { req }));
