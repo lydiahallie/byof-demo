@@ -2,5 +2,24 @@
   "name": "byof-demo",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/plugin-transform-react-jsx": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/register": "^7.18.6",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^18.0.4",
+    "@vercel/routing-utils": "^1.13.5",
+    "esbuild": "^0.14.49",
+    "fs-extra": "^10.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "resolve-from": "^5.0.0"
+  },
+  "scripts": {
+    "build": "ts-node lib",
+    "build:css": "npx tailwindcss -i ./styles.css -o ./public/styles.css --minify",
+    "deploy": "npx vercel deploy --prebuilt"
+  }
 }

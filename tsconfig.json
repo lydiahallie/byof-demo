@@ -1,0 +1,30 @@
+{
+  "ts-node": {
+    "jsx": "react",
+    "compilerOptions": {
+      "module": "commonjs",
+      "emitDeclarationOnly": true,
+      "isolatedModules": false,
+      "target": "esnext",
+      "esModuleInterop": true
+    }
+  },
+  "compilerOptions": {
+    "jsx": "preserve",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
