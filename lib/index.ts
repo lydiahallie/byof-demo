@@ -7,6 +7,7 @@ import { createStaticFile } from "./build/generate/createStaticFile";
 import { createServerlessFunction } from "./build/generate/createServerlessFunction";
 import { createPrerender } from "./build/generate/createPrerender";
 import { existsSync } from "fs";
+import { createEdgeFunction } from "./build/generate/createEdgeFunction";
 
 require("@babel/register")({
   extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -35,6 +36,9 @@ async function buildVercelOutput() {
             return createPrerender(Component, filePath, pageConfig);
           case "ssr":
             return createServerlessFunction(Component, filePath);
+          case "edge":
+            return createEdgeFunction(Component, filePath);
+
           default:
             return;
         }
