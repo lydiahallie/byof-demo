@@ -9,20 +9,19 @@ import { getPageName } from "../../utils/page";
 export async function createStaticFile(
   Component: React.Element,
   filePath: string,
-  options?: {
+  options: {
     outdir?: string;
     fileName?: string;
-  }
+    bundle?: boolean;
+  } = { bundle: true }
 ) {
   const pageName = getPageName(filePath);
   const outdir = options?.outdir || join(".vercel/output/static");
 
-  try {
-    await fs.ensureDir(outdir);
+  await fs.ensureDir(outdir);
 
+  if (options?.bundle) {
     await generateClientBundle({ filePath, outdir, pageName });
-  } catch (e) {
-    console.log(e);
   }
 
   return fs.writeFileSync(
