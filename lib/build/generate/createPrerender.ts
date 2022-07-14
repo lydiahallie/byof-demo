@@ -18,12 +18,14 @@ export async function createPrerender(
   await fs.ensureDir(funcFolder);
 
   try {
-    await createServerlessFunction(Component, filePath);
-    await createStaticFile(Component, filePath, {
-      outdir: `.vercel/output/functions`,
-      fileName: `${pageName}.prerender-fallback.html`,
-      bundle: false,
-    });
+    await Promise.allSettled([
+      createServerlessFunction(Component, filePath),
+      createStaticFile(Component, filePath, {
+        outdir: `.vercel/output/functions`,
+        fileName: `${pageName}.prerender-fallback.html`,
+        bundle: false,
+      }),
+    ]);
 
     await writeJson(
       `.vercel/output/functions/${pageName}.prerender-config.json`,
@@ -33,13 +35,6 @@ export async function createPrerender(
         fallback: `${pageName}.prerender-fallback.html`,
       }
     );
-
-    return writeJson(`${funcFolder}/.vc-config.json`, {
-      runtime: "nodejs16.x",
-      handler: "index.js",
-      launcherType: "Nodejs",
-      shouldAddHelpers: true,
-    });
   } catch (e) {
     console.log(e);
   }
