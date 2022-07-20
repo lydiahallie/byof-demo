@@ -9,7 +9,7 @@ export const Image = (
       height={props.height}
       loading={props.loading ? props.loading : "lazy"}
       src={`/_vercel/image?url=${encodeURIComponent(props.src)}&w=${
-        props.width
+        props.width * 1.5
       }&q=75`}
     />
   );

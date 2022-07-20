@@ -1,6 +1,7 @@
 export default {
   images: {
-    sizes: [280, 750, 900, 1280],
+    sizes: [450, 1125],
+    domains: ["cdn.shopify.com"],
     formats: ["image/webp", "image/avif"],
   },
 };

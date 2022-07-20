@@ -1,3 +1,4 @@
+import { Image } from "../lib/components/Image";
 import { Grid } from "../components/Grid";
 import { Layout } from "../components/Layout";
 import products from "../data";
@@ -10,17 +11,17 @@ export default function Products() {
         <main className="flex flex-col items-center flex-1 px-4 sm:px-20  z-10 sm:pt-10">
           <h1 className="text-3xl sm:text-5xl font-bold">Products</h1>
           <p className="mt-4 sm:text-xl text-lg text-gray-700">
-            Shop the latest Vercel and Next.js merch for the best price
+            Shop the latest Acme merch for the best price
           </p>
           <Grid>
             {products.map((product) => (
               <div className="cursor-pointer" key={product.id}>
                 <div className="bg-white rounded-lg shadow-lg w-full max-w-[480px] transition">
-                  <img
-                    alt="Black shirt with white logo"
+                  <Image
+                    alt={product.name}
                     src={product.src}
-                    width="512"
-                    height="512"
+                    width={300}
+                    height={300}
                   />
                 </div>
                 <section className="py-3">

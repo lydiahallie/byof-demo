@@ -1,3 +1,4 @@
+import { Image } from "../lib/components/Image";
 import { Grid } from "../components/Grid";
 import { Layout } from "../components/Layout";
 import products from "../data";
@@ -19,11 +20,11 @@ export default function Popular({ req }) {
             {products.reverse().map((product) => (
               <div className="cursor-pointer" key={product.id}>
                 <div className="bg-white rounded-lg shadow-lg w-full max-w-[480px] transition">
-                  <img
-                    alt="Black shirt with white logo"
+                  <Image
+                    alt={product.name}
                     src={product.src}
-                    width="512"
-                    height="512"
+                    width={300}
+                    height={300}
                   />
                 </div>
                 <section className="py-3">

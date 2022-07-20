@@ -27,7 +27,7 @@ export async function createPrerender(
       }),
     ]);
 
-    await writeJson(
+    return writeJson(
       `.vercel/output/functions/${pageName}.prerender-config.json`,
       {
         expiration: pageConfig.revalidate,
