@@ -19,7 +19,7 @@
     "resolve-from": "^5.0.0"
   },
   "scripts": {
-    "build": "ts-node lib",
+    "build": "npx ts-node lib",
     "build:css": "npx tailwindcss -i ./styles.css -o ./public/styles.css --minify",
     "deploy": "npx vercel deploy --prebuilt"
   }
